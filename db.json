@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "name": "love",
+      "price": "38",
+      "id": "DFZ_l3F"
+    },
+    {
+      "name": "mango",
+      "price": "23",
+      "id": "nzMATvc"
+    }
+  ],
+  "details": [
+    {
+      "userName": "sonam",
+      "password": "lop",
+      "confirmPassword": "lop",
+      "email": "lomo @lop.com",
+      "subscribe": true,
+      "address": {
+        "city": "city",
+        "state": "state",
+        "postalCode": "12343545"
+      },
+      "alternateEmails": [
+        "loplop@lop.com",
+        "loplop@lop.com"
+      ],
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullName": "top",
+      "email": "po@we.com",
+      "mobile": "23432123",
+      "city": "okj",
+      "gender": "1",
+      "username": "mango",
+      "password": "mommo",
+      "dateOfBirth": "2019-07-01T18:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "fullName": "som",
+      "email": "jhh@jh.com",
+      "mobile": "93847587",
+      "city": "wdefgh",
+      "gender": "1",
+      "username": "lolo",
+      "password": "lolo",
+      "dateOfBirth": "2019-07-16T18:00:00.000Z"
+    }
+  ]
+}

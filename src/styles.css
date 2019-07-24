@@ -1,0 +1,25 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body{
+  font-family: Roboto, Arial, sans-serif;
+}
+.form.normal-form{
+  margin: 10px;
+}
+.add-bottom-padding{
+  padding-bottom: 10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.button-row button{
+  margin: 5px;
+}
+.logout{
+  position: absolute;
+  left: 89%;
+}
+.page{
+  position: absolute;
+  top:31%;
+}

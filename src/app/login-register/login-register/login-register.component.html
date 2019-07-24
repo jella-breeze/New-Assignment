@@ -1,0 +1,79 @@
+<mat-toolbar color="gray">
+  <span class="fill-remaining-space"></span>
+
+  <span>Register</span>
+  <button mat-raised-button class="login" (click)="this.popLogin()" color="primary">Login</button>
+
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<form [formGroup]="lForm"  class="normal-form" (ngSubmit)="addUserDetails()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+
+        <mat-form-field>
+          <input formControlName="fullName" matInput placeholder="Full Name">
+          <mat-error>This is mandatory</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email">
+          <mat-error>Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="mobile" matInput placeholder="Mobile">
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.required">
+            This is mandatory.
+          </mat-error>
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.minlength">
+            It should be minimum 8.
+          </mat-error>
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.maxlength">
+            It should be maximum 8.
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="city" matInput placeholder="City">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="username" matInput placeholder="New Username">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="password" matInput placeholder="New Password">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+            <mat-radio-button value="3">Others</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field>
+            <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" placeholder="DOB">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="lForm.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>

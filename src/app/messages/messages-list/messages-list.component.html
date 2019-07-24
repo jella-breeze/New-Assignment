@@ -1,0 +1,78 @@
+<div class="search-div">
+  <button mat-raised-button (click)="this.popDetail()">
+    <mat-icon>add</mat-icon>Add
+  </button>
+  <mat-form-field class="search-form-feild" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="on" (keyup)="applyFilter()">
+    <button mat-raised-button matSuffix mat-icon-button aria-label="Clear"
+            (click)="onSearch()" *ngIf="searchKey">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<div class="side-nav-content">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>About Us</span><hr/>
+      <div class="detail">
+      <p>Sonamlhendup50@gmail.com</p>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="side-nav-content">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span class="a">Your Details</span>
+      <mat-table [dataSource]="dataSource" class="b" matSort>
+        <ng-container matColumnDef="fullName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.fullName}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="mobile">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.mobile}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="city">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.city}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.username}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="password">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Password</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.password}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateOfBirth">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Birth</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.dateOfBirth}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element; let i = index">
+            <button mat-icon-button (click)="onSelect(element)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="marn" (click)="deleteUser(element.id)"><mat-icon>delete_outline</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayUsers"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayUsers"></mat-row>
+
+      </mat-table>
+      <mat-paginator class="page" [pageSizeOptions]="[2, 5, 10, 20]" [pageSize]="5" showFirstLastButtons>
+
+      </mat-paginator>
+      <button mat-raised-button class="logout" color="primary" (click)="logout()">logout</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</div>

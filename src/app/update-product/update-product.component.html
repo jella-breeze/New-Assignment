@@ -1,0 +1,77 @@
+<mat-toolbar color="gray">
+  <span class="fill-remaining-space"></span>
+
+  <span>Update</span>
+
+
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<form [formGroup]="lForm"  class="normal-form" (ngSubmit)="updateUserDetails(data)">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="fullName" matInput placeholder="Full Name" [(ngModel)]="data.fullName">
+          <mat-error>This is mandatory</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email" [(ngModel)]="data.email">
+          <mat-error>Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="mobile" matInput placeholder="Mobile" [(ngModel)]="data.mobile">
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.required">
+            This is mandatory.
+          </mat-error>
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.minlength">
+            It should be minimum 8.
+          </mat-error>
+          <mat-error *ngIf="lForm.controls['mobile'].errors?.maxlength">
+            It should be maximum 8.
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="city" matInput placeholder="City" [(ngModel)]="data.city">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="username" matInput placeholder="New Username" [(ngModel)]="data.username">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="password" matInput placeholder="New Password" [(ngModel)]="data.password">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender" [(ngModel)]="data.gender">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+            <mat-radio-button value="3">Others</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field>
+          <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" placeholder="DOB" [(ngModel)]="data.dateOfBirth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="lForm.invalid">Submit</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>

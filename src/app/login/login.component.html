@@ -1,0 +1,20 @@
+<form [formGroup]="lForm"  class="normal-form" (ngSubmit)="checkUser()">
+  <mat-grid-list cols="2" rowHeight="300px" class="dothis">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="username" matInput placeholder="New Username">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="password" matInput placeholder="New Password">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>

@@ -1,0 +1,19 @@
+.detail{
+  position: absolute;
+  top: 14%;
+  left: 11%;
+}
+.a{
+  height: 54%;
+  position: absolute;
+  top: 23%;
+}
+.b{
+  position: absolute;
+  top:40%;
+}
+.search-div{
+  position: absolute;
+  top: 31%;
+  left: 34%;
+}

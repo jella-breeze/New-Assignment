@@ -1,0 +1,32 @@
+<mat-toolbar color="gray">
+  <span class="fill-remaining-space"></span>
+
+  <span>Update</span>
+
+
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<form [formGroup]="oForm"  class="normal-form" (ngSubmit)="updateProductOrder(data)">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Product Name" [(ngModel)]="data.name">
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="price" matInput placeholder="Price" [(ngModel)]="data.price">
+          <mat-error>
+            Required
+          </mat-error>
+
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="oForm.invalid">Submit</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

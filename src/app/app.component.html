@@ -1,0 +1,30 @@
+<mat-drawer-container class="container" autosize>
+
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <button color="primary" mat-button routerLink="/dataTable">Customer</button>
+    <button color="primary" mat-button routerLink="/messages">Details</button>
+    <button color="primary" mat-button routerLink="order">Orders</button>
+  </mat-drawer>
+
+  <div class="side-nav-content">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>reorder</mat-icon>
+        </button>
+        <span>Title</span>
+        <span class="spacer"></span>
+        <mat-icon>favorite</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <div class="card" *ngIf="!this.user">
+ <app-login-register></app-login-register>
+</div>
+
+  </div>
+
+</mat-drawer-container>
